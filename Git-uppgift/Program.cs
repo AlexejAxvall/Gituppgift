@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 class Program
 {
@@ -240,6 +241,18 @@ class Program
         // Strängen som kommer in kommer innehålla flera ord, och det är de som ska sorteras i bokstavsordning.
         // Orden i strängen som kommer in kommer vara separerade med ett bindestreck, se exempel nedan.
         // Ex: (trollfabrik-tomater-fisk-påfågel) ska komma tillbaka som (fisk-påfågel-tomater-trollfabrik)
+
+        ord.Split('_');
+
+        char[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö' };
+
+        char[] sorted_ord = { };
+
+        for (int i = 0; i < ord.Length; i++)
+        {
+
+        }
+
         return sorteradString;
     }
 
@@ -247,6 +260,39 @@ class Program
     {
         bool test = false;
         // Gör en funtion som kollar om en siffra är ett primtal. Om det är ett primtal skicka tillbaka "True", annars "False".
+
+        char[] prime_endings = { '1', '3', '7', '9' };
+
+        string str_nummer = nummer.ToString();
+
+        int number_ending = Int32.Parse(str_nummer[str_nummer.Length - 1].ToString());
+
+        int i = 3;
+
+        if (nummer != 0 && nummer != 1 && nummer != 2  && nummer != 5)
+        {
+            if (Array.IndexOf(prime_endings, number_ending) != -1)
+            {
+                while (test == false && i < nummer)
+                {
+                    if (nummer % i != 0 || i == nummer)
+                    {
+                        i = 3;
+                        test = false;
+                        return test;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+        }
+        else
+        {
+            test = true;
+        }
+
         return test;
     }
 
